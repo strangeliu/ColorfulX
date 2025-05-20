@@ -76,7 +76,7 @@ open class MulticolorGradientView: MetalView {
 
         let parms = parameters
 
-        for i in 0 ..< parms.points.count {
+        for i in 0 ..< min(parms.points.count, Uniforms.COLOR_SLOT) {
             let point = parms.points[i]
             let color = point.color.color(in: .lab)
             shaderPoints[i] = (
