@@ -20,6 +20,8 @@ import Foundation
 
             wantsLayer = true
             if let metalLink, let layer {
+                layer.isOpaque = false
+                layer.backgroundColor = NSColor.clear.cgColor
                 layer.addSublayer(metalLink.metalLayer)
                 metalLink.metalLayer.delegate = self
                 metalLink.onSynchronizationUpdate = { [weak self] in

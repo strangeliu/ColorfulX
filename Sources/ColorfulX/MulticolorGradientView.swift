@@ -44,14 +44,25 @@ open class MulticolorGradientView: MetalView {
     func renderIfNeeded() {
         guard needsRender else { return }
         defer { needsRender = false }
-        DispatchQueue.global().async {
-            self.render()
+        if Thread.isMainThread {
+            render()
+        } else {
+            DispatchQueue.main.sync {
+                render()
+            }
         }
     }
 
     func render() {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        CATransaction.setAnimationDuration(0)
+
         let lock = lock
-        guard lock.try() else { return }
+        guard lock.try() else {
+            CATransaction.commit()
+            return
+        }
 
         guard let metalLink,
               let computePipelineState,
@@ -60,6 +71,7 @@ open class MulticolorGradientView: MetalView {
               let commandEncoder = commandBuffer.makeComputeCommandEncoder()
         else {
             lock.unlock()
+            CATransaction.commit()
             return
         }
         commandBuffer.addCompletedHandler { _ in
@@ -123,7 +135,11 @@ open class MulticolorGradientView: MetalView {
 
         commandEncoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupCount)
         commandEncoder.endEncoding()
+
         commandBuffer.commit()
+        commandBuffer.waitUntilScheduled()
         drawable.present()
+
+        CATransaction.commit()
     }
 }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		500E7C462C6F5397001D7AA1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E7C452C6F5397001D7AA1 /* main.swift */; };
+		504EB7D32E9A6E39004985E8 /* ControlSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EB7D22E9A6E39004985E8 /* ControlSurface.swift */; };
+		504EB7D52E9A6E4B004985E8 /* PresetPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EB7D42E9A6E4B004985E8 /* PresetPickerView.swift */; };
+		504EB7D92E9A6E9D004985E8 /* ValueSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EB7D82E9A6E9D004985E8 /* ValueSliderView.swift */; };
+		504EB7DB2E9A6EA0004985E8 /* FramePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EB7DA2E9A6EA0004985E8 /* FramePickerControl.swift */; };
 		507C2F092C36FB1000BCB5FA /* ChessboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507C2F082C36FB1000BCB5FA /* ChessboardView.swift */; };
 		50C663882B19B04800AF7053 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C663872B19B04800AF7053 /* App.swift */; };
 		50C6638A2B19B04800AF7053 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C663892B19B04800AF7053 /* ContentView.swift */; };
@@ -17,6 +21,10 @@
 
 /* Begin PBXFileReference section */
 		500E7C452C6F5397001D7AA1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		504EB7D22E9A6E39004985E8 /* ControlSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlSurface.swift; sourceTree = "<group>"; };
+		504EB7D42E9A6E4B004985E8 /* PresetPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetPickerView.swift; sourceTree = "<group>"; };
+		504EB7D82E9A6E9D004985E8 /* ValueSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueSliderView.swift; sourceTree = "<group>"; };
+		504EB7DA2E9A6EA0004985E8 /* FramePickerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramePickerControl.swift; sourceTree = "<group>"; };
 		507C2F082C36FB1000BCB5FA /* ChessboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessboardView.swift; sourceTree = "<group>"; };
 		50C663842B19B04800AF7053 /* ColorfulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorfulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C663872B19B04800AF7053 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -60,6 +68,10 @@
 				500E7C452C6F5397001D7AA1 /* main.swift */,
 				50C663872B19B04800AF7053 /* App.swift */,
 				50C663892B19B04800AF7053 /* ContentView.swift */,
+				504EB7D42E9A6E4B004985E8 /* PresetPickerView.swift */,
+				504EB7D82E9A6E9D004985E8 /* ValueSliderView.swift */,
+				504EB7DA2E9A6EA0004985E8 /* FramePickerControl.swift */,
+				504EB7D22E9A6E39004985E8 /* ControlSurface.swift */,
 				507C2F082C36FB1000BCB5FA /* ChessboardView.swift */,
 				50C6638B2B19B04900AF7053 /* Assets.xcassets */,
 				50C6638D2B19B04900AF7053 /* ColorfulApp.entitlements */,
@@ -105,7 +117,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					50C663832B19B04800AF7053 = {
 						CreatedOnToolsVersion = 15.1;
@@ -146,9 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504EB7DB2E9A6EA0004985E8 /* FramePickerControl.swift in Sources */,
 				50C6638A2B19B04800AF7053 /* ContentView.swift in Sources */,
 				507C2F092C36FB1000BCB5FA /* ChessboardView.swift in Sources */,
+				504EB7D52E9A6E4B004985E8 /* PresetPickerView.swift in Sources */,
 				500E7C462C6F5397001D7AA1 /* main.swift in Sources */,
+				504EB7D92E9A6E9D004985E8 /* ValueSliderView.swift in Sources */,
+				504EB7D32E9A6E39004985E8 /* ControlSurface.swift in Sources */,
 				50C663882B19B04800AF7053 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +208,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -213,6 +230,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -254,6 +272,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -268,6 +287,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -283,7 +303,6 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 964G86XT2P;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -295,14 +314,14 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.ColorfulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,7 +331,8 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
@@ -327,7 +347,6 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 964G86XT2P;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,14 +358,14 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.ColorfulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,7 +375,8 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,7";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};

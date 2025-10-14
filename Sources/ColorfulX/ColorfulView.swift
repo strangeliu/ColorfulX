@@ -17,6 +17,7 @@ public struct ColorfulView: View {
     @Binding var frameLimit: Int
     @Binding var renderScale: Double
 
+    let animationDirector: SpeckleAnimationDirector
     let repeats: Bool
 
     /// Initialize the ColorfulView by wrapping around the AnimatedMulticolorGradientView.
@@ -37,6 +38,7 @@ public struct ColorfulView: View {
         transitionSpeed: Binding<Double> = .constant(5),
         frameLimit: Binding<Int> = .constant(0),
         renderScale: Binding<Double> = .constant(1.0),
+        animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector(),
         repeats: Bool = true
     ) {
         _color = color
@@ -47,6 +49,7 @@ public struct ColorfulView: View {
         _frameLimit = frameLimit
         _renderScale = renderScale
 
+        self.animationDirector = animationDirector
         self.repeats = repeats
     }
 
@@ -67,8 +70,10 @@ public struct ColorfulView: View {
             transitionSpeed: $transitionSpeed,
             frameLimit: $frameLimit,
             renderScale: $renderScale,
+            animationDirector: animationDirector,
             repeats: repeats
         )
+        .contentShape(Rectangle())
     }
 }
 
@@ -126,6 +131,7 @@ public extension ColorfulView {
         transitionSpeed: Binding<Double> = .constant(5),
         frameLimit: Binding<Int> = .constant(0),
         renderScale: Binding<Double> = .constant(1.0),
+        animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector(),
         repeats: Bool = true
     ) {
         let colorBinding = Binding<[Color]>(get: {
@@ -141,6 +147,7 @@ public extension ColorfulView {
             transitionSpeed: transitionSpeed,
             frameLimit: frameLimit,
             renderScale: renderScale,
+            animationDirector: animationDirector,
             repeats: repeats
         )
     }
@@ -163,6 +170,7 @@ public extension ColorfulView {
         transitionSpeed: Binding<Double> = .constant(5),
         frameLimit: Binding<Int> = .constant(0),
         renderScale: Binding<Double> = .constant(1.0),
+        animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector(),
         repeats: Bool = true
     ) {
         let colorBinding = Binding<[Color]>(get: {
@@ -178,6 +186,7 @@ public extension ColorfulView {
             transitionSpeed: transitionSpeed,
             frameLimit: frameLimit,
             renderScale: renderScale,
+            animationDirector: animationDirector,
             repeats: repeats
         )
     }
@@ -200,6 +209,7 @@ public extension ColorfulView {
         transitionSpeed: Binding<Double> = .constant(5),
         frameLimit: Binding<Int> = .constant(0),
         renderScale: Binding<Double> = .constant(1.0),
+        animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector(),
         repeats: Bool = true
     ) {
         self.init(
@@ -210,6 +220,7 @@ public extension ColorfulView {
             transitionSpeed: transitionSpeed,
             frameLimit: frameLimit,
             renderScale: renderScale,
+            animationDirector: animationDirector,
             repeats: repeats
         )
     }
@@ -232,6 +243,7 @@ public extension ColorfulView {
         transitionSpeed: Binding<Double> = .constant(5),
         frameLimit: Binding<Int> = .constant(0),
         renderScale: Binding<Double> = .constant(1.0),
+        animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector(),
         repeats: Bool = true
     ) {
         let colorBinding = Binding<[Color]>(get: {
@@ -247,6 +259,7 @@ public extension ColorfulView {
             transitionSpeed: transitionSpeed,
             frameLimit: frameLimit,
             renderScale: renderScale,
+            animationDirector: animationDirector,
             repeats: repeats
         )
     }

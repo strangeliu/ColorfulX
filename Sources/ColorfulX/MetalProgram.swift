@@ -10,13 +10,6 @@ import MetalKit
 
 private enum MetalProgram: String {
     case colorful = """
-    //
-    //  MeshGradient.metal
-    //  BlobToy
-    //
-    //  Created by Lakr233 on 2024/07/04.
-    //
-
     #include <metal_stdlib>
 
     using namespace metal;
@@ -162,8 +155,10 @@ private enum MetalProgram: String {
             col += uniforms.colors[i] * factor;
         }
 
+        float alpha = clamp(col.w, 0.0, 1.0);
         float3 color_with_out_alpha = float3_lab_to_rgb(col.xyz);
-        float4 color = float4(color_with_out_alpha, col.w);
+        float3 premultiplied = color_with_out_alpha * alpha;
+        float4 color = float4(premultiplied, alpha);
 
         output.write(clamp(color, 0.0, 1.0), gid);
     }

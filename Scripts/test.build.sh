@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 cd ..
 
-WORKSPACE="./Example/ColorfulApp.xcworkspace"
+WORKSPACE="./Example/Workspace.xcworkspace"
 SCEHEME="ColorfulApp"
 
 function test_build() {
@@ -13,9 +13,11 @@ function test_build() {
         -workspace "$WORKSPACE" \
         -scheme "$SCEHEME" \
         -destination "$DESTINATION" \
+        -configuration Release \
+        clean build \
         CODE_SIGN_IDENTITY="" \
         CODE_SIGNING_ALLOWED=NO \
-        | xcbeautify
+        | xcbeautify -qq
     EXIT_CODE=${PIPESTATUS[0]}
     echo "[*] finished with exit code $EXIT_CODE"
     if [ $EXIT_CODE -ne 0 ]; then

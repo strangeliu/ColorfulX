@@ -32,6 +32,8 @@ open class AnimatedMulticolorGradientView: MulticolorGradientView {
         didSet { renderInputWasModified = true }
     }
 
+    public let animationDirector: SpeckleAnimationDirector
+
     private let specklesAccessLock = NSLock()
 
     public var speed: Double = 1.0 {
@@ -56,10 +58,23 @@ open class AnimatedMulticolorGradientView: MulticolorGradientView {
 
     // MARK: - FUNCTION
 
-    override public init() {
-        speckles = .init(repeating: .init(position: SPRING_ENGINE), count: Uniforms.COLOR_SLOT)
+    public init(animationDirector: SpeckleAnimationDirector = SpeckleAnimationRandomDirector()) {
+        self.animationDirector = animationDirector
+        speckles = .init(
+            repeating: .init(position: SPRING_ENGINE),
+            count: Uniforms.COLOR_SLOT
+        )
         super.init()
+        self.animationDirector.attach(to: self)
         initializeRenderParameters()
+    }
+
+    override public convenience init() {
+        self.init(animationDirector: SpeckleAnimationRandomDirector())
+    }
+
+    deinit {
+        animationDirector.detach()
     }
 
     // MARK: - GETTER
@@ -123,9 +138,16 @@ open class AnimatedMulticolorGradientView: MulticolorGradientView {
     #if canImport(UIKit)
         override open func didMoveToWindow() {
             super.didMoveToWindow()
-            layoutIfNeeded()
-            updateRenderParameters(deltaTime: deltaTimeForRenderParametersUpdate())
-            renderIfNeeded()
+            if window != nil {
+                // Use CATransaction to ensure execution in the next run loop
+                CATransaction.begin()
+                CATransaction.setCompletionBlock { [weak self] in
+                    self?.layoutIfNeeded()
+                    self?.updateRenderParameters(deltaTime: 0) // No animation needed during initialization
+                    self?.renderIfNeeded()
+                }
+                CATransaction.commit()
+            }
         }
     #endif
 

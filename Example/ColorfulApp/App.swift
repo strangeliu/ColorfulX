@@ -13,10 +13,5 @@ struct App: SwiftUI.App {
         WindowGroup {
             ContentView()
         }
-        #if os(macOS)
-        .windowResizability(.contentSize)
-        .windowStyle(.hiddenTitleBar)
-        .windowToolbarStyle(.unifiedCompact)
-        #endif
     }
 }

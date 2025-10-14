@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AuroraGlow.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ColorfulApp.xcodeproj">
    </FileRef>
    <FileRef
